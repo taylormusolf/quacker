@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quacker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if logged_in? %>
+      <h2>Welcome, <%= current_user.username%>!</h2>
+      <form action='<%= session_url %>' method='post'>
+        <%= auth_token %>
+        <input name='_method' value='delete' type='hidden' />
+        <input type='submit' value='Logout' />
+      </form>
+    <% else %>
+        <a href="<%= new_user_url %>">Sign Up</a>
+        <a href="<%= new_session_url %>">Login</a>
+    <% end %>
+
+    <% if flash[:errors] %>
+      <ul>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    
+    <% if flash[:success] %>
+      <ul>
+        <% flash[:success].each do |success| %>
+          <li><%= success %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <%= yield %>
+    
+  </body>
+</html>

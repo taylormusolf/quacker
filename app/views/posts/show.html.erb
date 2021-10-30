@@ -1,0 +1,9 @@
+<h1>One Single Post</h1>
+
+<p><%= @post.body %></p>
+
+<form action="<%= post_url(@post) %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <button>Delete this post</button>
+</form>

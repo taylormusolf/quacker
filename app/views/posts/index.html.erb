@@ -1,0 +1,12 @@
+<h1>All Posts</h1>
+<ul>
+    <% @posts.each do |post| %>
+        <li>
+            <ul>
+                <li>id: <%= post.id %></li>
+                <li>author_id: <%= post.author_id %></li>
+                <li>body: <%= post.body %></li>
+            </ul>
+        </li>
+    <% end %>
+</ul> 
