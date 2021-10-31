@@ -2,6 +2,7 @@ class Api::PostsController < ApplicationController
   def index
     @posts = Post.all.includes(:author)
     render :index
+    
   end
 
   def create
