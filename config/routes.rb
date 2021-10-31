@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   # SHORT WAY (resources)
   # resources :posts # will create all 7 routes
   # resources :posts, only: [:index, :show, :create, :update, :destroy] # 'only' selects the routes to create
-  resources :posts, except: [:edit] # 'except' excludes the specified routes when creating the normal 7
-  resources :users
-  resource :session, only: [:new, :create, :destroy]
+  # resources :posts, except: [:edit] # 'except' excludes the specified routes when creating the normal 7
+  # resources :users
+  # resource :session, only: [:new, :create, :destroy]
+  root to: "static_pages#root"
+  namespace :api, defaults: { format: :json } do
+    resources :posts, only: [:index, :create, :show, :update, :destroy]
+  end
+
 end

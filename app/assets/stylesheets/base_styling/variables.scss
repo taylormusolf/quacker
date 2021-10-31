@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+
+$header-height: 150px;
+$text-size: 150px;
+$left-width: $header-height * 1.5;
+
+$title-font: "Lobster", cursive;
+$body-font: "Patrick Hand", cursive;
+
+body {
+  font-family: $body-font;
+}
